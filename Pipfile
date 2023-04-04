@@ -11,7 +11,7 @@ path = "*"
 requests = "*"
 pytest = "*"
 gevent = "*"
-selenium = "*"
+selenium = "==4.4.3"
 
 [dev-packages]
 
