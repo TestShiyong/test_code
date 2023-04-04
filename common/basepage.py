@@ -5,6 +5,7 @@
 from path import error_picture_dir
 import time
 import os
+from common.log import log
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -87,6 +88,7 @@ class Base_page:
         elm_obj = self.get_element(elm, page_action, index, time_out)
         try:
             log.info('在 {} 行为，操作input元素：{}'.format(page_action, elm))
+            elm_obj.clear()
             elm_obj.send_keys(value)
         except:
             log.exception('输入文本失败')

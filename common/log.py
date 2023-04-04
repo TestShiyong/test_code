@@ -32,10 +32,10 @@ class Mylog(logging.Logger):
             # 添加至收集器
             self.addHandler(file_handle)
 
-
+log = Mylog('mylog', 'INFO', file=log_file_dir + r'\new11.log')
 
 if __name__ == '__main__':
-    logg = Mylog('mylog', 'INFO', file=log_file_dir + r'\new11.log')
+
 
     logg = Mylog('mylog', 'INFO', file=log_file_dir + r'\new11.log')
     logg.info('这是logger')
