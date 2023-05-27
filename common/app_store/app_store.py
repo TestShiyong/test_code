@@ -5,21 +5,8 @@ from common.basepage import Base_page
 
 driver = webdriver.Chrome()
 url = 'https://appstoreconnect.apple.com/apps/1130649335/appstore/ios/version/inflight'
-new_cookie = {"name": "myacinfo", "value": "DAWTKNV323952cf8084a204fb20ab2508441a07d02d31e28ed5440190d32f16773d0cf6a2"
-                                           "d246e6f75ae35b853633dad7d35ac46e9b380cf3b490af3c0ca86d7991c20b905583f1237"
-                                           "726076cbf1c6f07ac8658422c39d9161c31fd3249f9c6aec878ff6d5254699c26a78cbade"
-                                           "a6b55b8047280b16f4eebf3aab66938eabe65446b845a2fd0a71a60778b6da01e00e031a9"
-                                           "67958e8a675c92e9bcc0b0983b83f0bfd12a7cec39a3075f16207c53c8612f48635cea687"
-                                           "62e5ed98afc8c80fb03c58ef3613068fa1251be55132a8515398fc7152ba1574c46c50b38"
-                                           "b3e7c331c0661b4a916b8141893a366ef7f510107ffaf5eaadeaea2ef6ef1f8927999b948"
-                                           "b20ef3dae88d7e6f22ad81095fc58161d1585e12b499ac2f480bf793c463a709125459add"
-                                           "df144c0e5ac2adeeb0bd3502302806e5fd5626ee70d5d3ed43a8e1b46a7aab607df121659"
-                                           "d73c4338970ac066902d48b6dde164cc6f25d69c6aa8b7ef4a3ff1540ee8b83b9f7b5fc5e"
-                                           "b8afdf58666ff573b070c861307c5a670d03daa97d0ef6870abab43626491ca47770c3e38"
-                                           "deea3132a6edcc95fd260ce246e63bf9edb3d2c47329512731db59dc976accc9188444269"
-                                           "ec2df0a9f8117975017451d4b18f1468cabb6b6a13ddd9f99eb1850d3d517ef995c94ed02"
-                                           "e650065307b0ced7ce89ba143313ec072a9f276da8e908389d02515ab6643cd3aac4bf814"
-                                           "251a919b66fe98585a47V3"}
+new_cookie = {"name": "myacinfo",
+              "value": "DAWTKNV323952cf8084a204fb20ab2508441a07d02d361627bfe78cb9a07b876889ad6bcb53a8532dbc8b3e876a16db3bfcabbbd4a1faa964902e0ee4e8db5a3cec8bf97d3ad728f740ab538ba4d6bd9f34abf871824275643e0b2694a9d66fd1f7b5f739cc43ad94b3ec65e8d2d5dee09fc91821880d4788f4b7ecb9b99cc42e8dc9209d8ff69f448f96f7cd87cb1a1813c5ff89283d17cca81edb8500c3480e5d515ef80b815dbd52dad54ea4b421deaabe6139b8f622377faf447ec261b30b744c084852a7df3fa558a35eb5257651cb6963bfbe6bd5fdca3340b811903f36b161910413e93e7638382c1443839204cc0e572bb53946e05844fd774a8eb3e3dc3d3055cdc0515fa746fa0839e57028a7b970666fb5961f782032c274c76d2ab9245d3c1ba76f2ac96e65fe6e2d102cf7447322fa96f053ec7046d599733bfc861fa568b85aed0cc91bd75b0cdf744cd4e118e4eed7e0649cc30150c43a7e4ea638cf9d75dd5170b4c1dfe868792eae211669d7da82d783d6b5531f74644b20d49b4b0af0c8a6170eea9bac8d966df0f4e3ffb52c49ae3615d5f29355646048e9344cc8ff9cd52faf9e43b79a7a435d6b133347b216040125d6d7c9c11886c7e940cb301affdd5119c10263508e77f286c7f6e363ec728ced0491bbb4ec17b86323c5643aeafd48e38c013391b7cf7a82adab90dae2158e76785f369578c319fac25ee577a7d8521172d170aa913faeb8d9d7f559a585a47V3"}
 
 
 class AppStore(Base_page):
@@ -29,16 +16,17 @@ class AppStore(Base_page):
     driver.get(url)
 
     def switch_country(self, country_loc):
-        self.click_element(country_loc, '点击切换国家', index=0)
+        self.click_element(country_button_loc, '点击切换国家', index=0)
         self.click_element(country_loc, '点击切换到国家')
 
     def run(self):
         for i in country_list:
             self.switch_country(i['loc'])
-            self.input_value(promotion_input_box_loc, '输入推广文本', i['v1'])
+            loc = i['v1']
+            self.input_value(promotion_input_box_loc, f'输入推广文本，loc:({loc =})', i['v1'])
             self.input_value(new_describe_loc, '输入本次新增内容', i['v2'])
-            time.sleep(1)
             self.click_element(save_button_loc, '点击存储按钮')
+            time.sleep(5)
 
 
 app = AppStore(driver)

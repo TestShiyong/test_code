@@ -12,6 +12,7 @@ requests = "*"
 pytest = "*"
 gevent = "*"
 selenium = "==4.4.3"
+faker = "*"
 
 [dev-packages]
 

@@ -1,48 +1,48 @@
 from selenium.webdriver.common.by import By
 
-en_us = "- Shop 500+ bridesmaid dresses, from $69 to $169 \
-         - Shop 200+ wedding dresses, starting at $109\
-         - Try on SAMPLE DRESSES for $10-$15\
-         - Don't miss out the FLASH SALE!"
+en_us = "- Shop 500+ bridesmaid dresses, from $69 to $169\n" \
+        "- Shop 200+ wedding dresses, starting at $109\n" \
+        "- Try on SAMPLE DRESSES for $10-$15\n" \
+        "- Don't miss out the FLASH SALE!"
 
-de_DE = "- Shoppen Sie 500+ Brautjungfernkleider, von 99€ bis 209€" \
-        "- Shoppen Sie 200+ Brautkleider, ab 289€" \
+de_DE = "- Shoppen Sie 500+ Brautjungfernkleider, von 99€ bis 209€\n" \
+        "- Shoppen Sie 200+ Brautkleider, ab 289€\n" \
         "- Verpassen Sie nicht den FLASH SALE!"
 
-fr_FR = "- Acheter plus de 500 robes de demoiselle d'honneur, de €89 à €179" \
-        "- Acheter plus de 250 robes de mariée, à partir de €259" \
+fr_FR = "- Acheter plus de 500 robes de demoiselle d'honneur, de €89 à €179\n" \
+        "- Acheter plus de 250 robes de mariée, à partir de €259\n" \
         "- Ne manquez pas la VENTE FLASH !"
 
-en_CA1 = "Shop 500+bridesmaid dresses, from CA$99 to CA$339\
-          Shop 200+wedding dresses, starting at CA$323\
-          Try on SAMPLE DRESSES for CA$15-CA$20\
-          Don't miss out the FLASH SALE!"
+en_CA1 = "Shop 500+bridesmaid dresses, from CA$99 to CA$339\n" \
+         "Shop 200+wedding dresses, starting at CA$323\n" \
+         "Try on SAMPLE DRESSES for CA$15-CA$20\n" \
+         "Don't miss out the FLASH SALE!"
 
-es_MX = "- Compra más de 500 vestidos de dama de honor, desde MXN$2399 hasta MXN$4799\
-         - Compra más de 250 vestidos de novia, desde MXN$6899\
-         - ¡No te pierdas la VENTA FLASH!"
+es_MX = "- Compra más de 500 vestidos de dama de honor, desde MXN$2399 hasta MXN$4799\n" \
+        "- Compra más de 250 vestidos de novia, desde MXN$6899\n" \
+        "- ¡No te pierdas la VENTA FLASH!\n"
 
-es_ES = "- Compre más de 500 vestidos de dama de honor, desde 99€ a 239€\
-         - Compre más de 200 vestidos de novia, desde 259€\
-         - ¡No te pierdas la OFERTA FLASH!"
+es_ES = "- Compre más de 500 vestidos de dama de honor, desde 99€ a 239€\n" \
+        "- Compre más de 200 vestidos de novia, desde 259€\n" \
+        "- ¡No te pierdas la OFERTA FLASH!"
 
-it_IT = "- Acquista oltre 500 abiti da damigella, da 99€ a 239€\
-         - Acquista oltre 200 abiti da sposa, a partire da 259€\
-         - Prova campioni per 10€\
-         - Non perdetevi la VENDITA FLASH"
+it_IT = " - Acquista oltre 500 abiti da damigella, da 99€ a 239€\n" \
+        " - Acquista oltre 200 abiti da sposa, a partire da 259€\n" \
+        " - Prova campioni per 10€\n" \
+        " - Non perdetevi la VENDITA FLASH"
 
-en_AU = "- Shop 500+ bridesmaid dresses, from AU$129 to AU$259\
-         - Shop 250+ wedding dresses, starting at AU$379\
-         - Don't miss out the FLASH SALE!"
+en_AU = "- Shop 500+ bridesmaid dresses, from AU$129 to AU$259\n" \
+        "- Shop 250+ wedding dresses, starting at AU$379\n" \
+        "- Don't miss out the FLASH SALE!"
 
-en_CA = "Shop 500+bridesmaid dresses, from CA$99 to CA$339\
-         Shop 200+wedding dresses, starting at CA$323\
-         Try on SAMPLE DRESSES for CA$15-CA$20\
-         Don't miss out the FLASH SALE!"
+en_CA = " Shop 500+bridesmaid dresses, from CA$99 to CA$339\n" \
+        " Shop 200+wedding dresses, starting at CA$323\n" \
+        " Try on SAMPLE DRESSES for CA$15-CA$20\n" \
+        " Don't miss out the FLASH SALE!"
 
-en_GB = "- Shop 500+ bridesmaid dresses, from ￡79 to ￡159\
-         - Shop 250+ wedding dresses, starting at ￡229\
-         - Don't miss out the FLASH SALE!"
+en_GB = "- Shop 500+ bridesmaid dresses, from ￡79 to ￡159\n" \
+        "- Shop 250+ wedding dresses, starting at ￡229\n" \
+        "- Don't miss out the FLASH SALE!"
 
 en_describe = ""
 de_describe = ""
@@ -50,10 +50,10 @@ fr_describe = ""
 it_describe = ""
 es_describe = ""
 
-save_button_loc = By.ID, 'heading-buttons'
+save_button_loc = By.XPATH, '//button[text()="存储"]'
 country_button_loc = By.XPATH, '//button[@role="button"]'
-promotion_input_box_loc = By.NAME, '//div[@name="promotionalText"]'
-new_describe_loc = By.NAME, 'name="whatsNew"'
+promotion_input_box_loc = By.XPATH, '//div[@name="promotionalText"]'
+new_describe_loc = By.XPATH, '//div[@name="whatsNew"]'
 
 country_en_US_loc = By.XPATH, '//DIV[text()="英文（美国）"]'
 country_de_DE_loc = By.XPATH, '//DIV[text()="德文"]'
@@ -79,4 +79,3 @@ country_list = [
     {"loc": country_en_CA_loc, "v1": en_CA, "v2": en_describe},
     {"loc": country_en_GB_loc, "v1": en_GB, "v2": en_describe}
 ]
-
