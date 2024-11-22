@@ -35,7 +35,7 @@ aa = {"stockNumberMap": {
     "sp_purple_#86125d*2x": 16
 }}
 
-cc = [{"map":key,"value":value}for key,value in aa['stockNumberMap'].items()]
+cc = [{"map": key, "value": value} for key, value in aa['stockNumberMap'].items()]
 # print(cc)
 a = sorted(cc, key=lambda i: i['value'], reverse=True)[0]
 print(a)

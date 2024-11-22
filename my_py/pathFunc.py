@@ -1,5 +1,5 @@
 #:@ TIME 2021/12/23   10:53
-#:@FILE  path.py
+#:@FILE  pathFunc.py
 #:@EMAIL  1557225637@QQ.COM
 import os
 
