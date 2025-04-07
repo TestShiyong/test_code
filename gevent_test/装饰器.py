@@ -33,7 +33,7 @@ add_cat()
 
 """
 
-"""
+
 #带参装饰器
 
 
@@ -53,7 +53,7 @@ def add_number(a,b):
     print('计算 两个数相加：a+b={}'.format(a+b))
 
 add_number(5,9)
-"""
+
 
 """
 通用装饰器

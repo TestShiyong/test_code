@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+# 推广文本
 en_us = "- Shop 500+ bridesmaid dresses, from $69 to $169\n" \
         "- Shop 200+ wedding dresses, starting at $109\n" \
         "- Try on SAMPLE DRESSES for $10-$15\n" \
@@ -26,10 +27,10 @@ es_ES = "- Compre más de 500 vestidos de dama de honor, desde 99€ a 239€\n"
         "- Compre más de 200 vestidos de novia, desde 259€\n" \
         "- ¡No te pierdas la OFERTA FLASH!"
 
-it_IT = " - Acquista oltre 500 abiti da damigella, da 99€ a 239€\n" \
-        " - Acquista oltre 200 abiti da sposa, a partire da 259€\n" \
-        " - Prova campioni per 10€\n" \
-        " - Non perdetevi la VENDITA FLASH"
+it_IT = "- Acquista oltre 500 abiti da damigella, da 99€ a 239€\n" \
+        "- Acquista oltre 200 abiti da sposa, a partire da 259€\n" \
+        "- Prova campioni per 10€\n" \
+        "- Non perdetevi la VENDITA FLASH"
 
 en_AU = "- Shop 500+ bridesmaid dresses, from AU$129 to AU$259\n" \
         "- Shop 250+ wedding dresses, starting at AU$379\n" \
@@ -44,17 +45,21 @@ en_GB = "- Shop 500+ bridesmaid dresses, from ￡79 to ￡159\n" \
         "- Shop 250+ wedding dresses, starting at ￡229\n" \
         "- Don't miss out the FLASH SALE!"
 
-en_describe = ""
-de_describe = ""
-fr_describe = ""
-it_describe = ""
-es_describe = ""
+# 此版本的新增内容
+en_describe = "Bug fixes and performance improvements."
+de_describe = "Fehlerbehebungen und Performanceverbesserungen."
+fr_describe = "Corrections de bogues et améliorations des performances."
+it_describe = "Correzioni di bug e miglioramenti delle prestazioni."
+es_describe = "Correcciones de errores y mejoras de rendimiento."
 
+# loc
+cancel_button = By.XPATH, ''
 save_button_loc = By.XPATH, '//button[text()="存储"]'
 country_button_loc = By.XPATH, '//button[@role="button"]'
 promotion_input_box_loc = By.XPATH, '//div[@name="promotionalText"]'
 new_describe_loc = By.XPATH, '//div[@name="whatsNew"]'
 
+first_click_button = By.XPATH, '//span[text()="英文（美国）"]'
 country_en_US_loc = By.XPATH, '//DIV[text()="英文（美国）"]'
 country_de_DE_loc = By.XPATH, '//DIV[text()="德文"]'
 country_fr_FR_loc = By.XPATH, '//DIV[text()="法文"]'

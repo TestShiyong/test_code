@@ -2,24 +2,33 @@ from selenium import webdriver
 import time
 from user_data import *
 from common.basepage import Base_page
+from selenium.webdriver.common.by import By
 
+first_click_button = By.XPATH, '//span[text()="英文（美国）"]'
 driver = webdriver.Chrome()
 url = 'https://appstoreconnect.apple.com/apps/1130649335/appstore/ios/version/inflight'
 new_cookie = {"name": "myacinfo",
-              "value": "DAWTKNV323952cf8084a204fb20ab2508441a07d02d361627bfe78cb9a07b876889ad6bcb53a8532dbc8b3e876a16db3bfcabbbd4a1faa964902e0ee4e8db5a3cec8bf97d3ad728f740ab538ba4d6bd9f34abf871824275643e0b2694a9d66fd1f7b5f739cc43ad94b3ec65e8d2d5dee09fc91821880d4788f4b7ecb9b99cc42e8dc9209d8ff69f448f96f7cd87cb1a1813c5ff89283d17cca81edb8500c3480e5d515ef80b815dbd52dad54ea4b421deaabe6139b8f622377faf447ec261b30b744c084852a7df3fa558a35eb5257651cb6963bfbe6bd5fdca3340b811903f36b161910413e93e7638382c1443839204cc0e572bb53946e05844fd774a8eb3e3dc3d3055cdc0515fa746fa0839e57028a7b970666fb5961f782032c274c76d2ab9245d3c1ba76f2ac96e65fe6e2d102cf7447322fa96f053ec7046d599733bfc861fa568b85aed0cc91bd75b0cdf744cd4e118e4eed7e0649cc30150c43a7e4ea638cf9d75dd5170b4c1dfe868792eae211669d7da82d783d6b5531f74644b20d49b4b0af0c8a6170eea9bac8d966df0f4e3ffb52c49ae3615d5f29355646048e9344cc8ff9cd52faf9e43b79a7a435d6b133347b216040125d6d7c9c11886c7e940cb301affdd5119c10263508e77f286c7f6e363ec728ced0491bbb4ec17b86323c5643aeafd48e38c013391b7cf7a82adab90dae2158e76785f369578c319fac25ee577a7d8521172d170aa913faeb8d9d7f559a585a47V3"}
+              "value": "DAWTKNV323952cf8084a204"
+                       ""
+                       ""
+                       "fb20ab2508441a07d02d37c5d6ab30827422818a8d53be98d9c7884f6a2f09a205aea68d5a7b650bd5d431154700846c3b0058257d062bfa01b62f3e886269c1f275e38b879211a890e4d1d3e8e55c52db32043e5b14e75a1952bd66fe5d34b89be680d39692e4a1d5f5c2a76496b3c5088c9d000505fd484079be3cfa58f87d0655c80399415bc5f9c5851e943635fbc037741820d7765751e8dbc7cc1c9e015a8337e83f8e93e709c8ef1bc60d3e02a875b9e8bfdff27d9bb9415b2408a9bf90d1e73c02ddb4437558c870e76f564f7f5036f3bd269f29e6f38c7e91b7c37b4c577b824cbf88da819a1e2534643c4e728ce8476513969971d8f523cc81ba732df1c0fce2e478675fe544f40c297ba51f2cb92704c83bef39a7813f495ed2c210e799d96ca0a46df82ddca582b251eb60403acbf52df5e5f7837618312f26c24c29018917ef27ff04336e75d4b4ec5e7dfc101d125e2bed510012dc9dac88dde600a26484513cf3d162b01b2e5c387d802a711f299d7103615cbaec7855cffe54e718ccfa06ca207977b44c0c4f3d4f86f51982619bdcfe1a98553c4837ef5326baf268c38369cbdf19499fcf2123508793a7e04cb8b0c31f13b0293d2a9fc86cc1fae30f9ef9fe623d7604bf620b3502198735d8493cfbe639da205c10e163c96fcc10e9bdae9bf3e3b70b01e945b99bb329cf969758dbf21a378843f416cc39860ab6140ddd3960ef8585a47V3"}
 
 
 class AppStore(Base_page):
     driver.get(url)
     driver.maximize_window()
     driver.add_cookie(new_cookie)
+    time.sleep(1)
     driver.get(url)
 
     def switch_country(self, country_loc):
-        self.click_element(country_button_loc, '点击切换国家', index=0)
+        self.click_element(country_button_loc, '点击切换国家', index=1)
         self.click_element(country_loc, '点击切换到国家')
 
     def run(self):
+        pass
+        # self.click_element()
+        time.sleep(10)
         for i in country_list:
             self.switch_country(i['loc'])
             loc = i['v1']

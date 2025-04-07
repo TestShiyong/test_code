@@ -17,7 +17,7 @@ class Base_page:
     '''
     def waite_ele_visible：封装的等待元素可见方法 #打印-计时-try-等待-expect-打印-截图-r-else打印等待时长
 
-    def get_element(self,elm,page_action): 封装的 find 元素方法 ，打印-调用封装好的等待-try-查找元素-expect  打印失败-截图-raise-else-return 元素
+    def get_element(self,loc,page_action): 封装的 find 元素方法 ，打印-调用封装好的等待-try-查找元素-expect  打印失败-截图-raise-else-return 元素
 
 
     '''
@@ -27,91 +27,93 @@ class Base_page:
 
     # 封装等待方法
     # 打印-计时-try-等待-expect-打印-截图-else打印等待时长
-    def __waite_ele_visible(self, elm, page_action, time_out):
+    def __waite_ele_visible(self, loc, page_action, time_out):
         # log输出 什么元素
-        log.info('在 {} 行为,等待元素：{} 可见'.format(page_action, elm))
+        # log.info('等待元素：({}) 可见,action({})'.format(loc, page_action))
         # 等待开始时间
         start = time.time()
         # 捕捉异常
         try:
-            WebDriverWait(self.driver, time_out).until(EC.visibility_of_element_located(elm))
-            # WebDriverWait(self.driver,time_out).until(EC.presence_of_all_elements_located(elm))
+            WebDriverWait(self.driver, time_out).until(EC.visibility_of_element_located(loc))
+            # WebDriverWait(self.driver,time_out).until(EC.presence_of_all_elements_located(loc))
 
         except:
             # 输出等待失败
-            log.exception("等待元素可见失败")
+            log.exception("等待元素可见失败,loc:({})".format(loc))
             # 调用失败截图方法
             self.get_page_img(page_action)
             raise
         else:
-            end = time.time()
-            log.info('等待元素成功，等待时间为:{}'.format(start - end))
+            pass
+            # end = time.time()
+            # log.info('等待元素成功，等待时间为:{}'.format(start - end))
 
     # 打印-调用封装好的等待-try-查找元素-expect  打印失败-截图-raise-else-return 元素
-    def get_element(self, elm, page_action, index=None, time_out=20):
-        self.__waite_ele_visible(elm, page_action, time_out)
-        log.info('在  {}  行为,查找元素：{}'.format(page_action, elm))
+    def get_element(self, loc, page_action, index=None, time_out=20):
+        self.__waite_ele_visible(loc, page_action, time_out)
+        # log.info('获取元素对象 loc({}),action({})'.format(loc, page_action))
         if index:
             try:
-                elm_obj = self.driver.find_elements(*elm)[index]
+                loc_obj = self.driver.find_elements(*loc)[index]
             except:
-                log.info("查找:{} 元素失败".format(elm))
+                log.info("获取元素对象失败,loc({})".format(loc))
                 self.get_page_img(page_action)
                 raise
             else:
-                return elm_obj
+                return loc_obj
         else:
             try:
-                elm_obj = self.driver.find_element(*elm)
+                loc_obj = self.driver.find_element(*loc)
             except:
-                log.exception("查找:{} 元素失败".format(elm))
+                log.exception("查找:{} 元素失败".format(loc))
                 # 调用失败截图方法
                 self.get_page_img(page_action)
                 raise
             else:
-                return elm_obj
+                return loc_obj
 
     # 打印-调用封装的geielement-try-调用查找元素方法-expect-dayin-截图-raise
-    def click_element(self, elm, page_action, index=None, time_out=20):
-        log.info('在 {} 行为,点击元素：{}'.format(page_action, elm))
-        elm_obj = self.get_element(elm, page_action, index, time_out)
+    def click_element(self, loc, page_action, index=None, time_out=20):
+        loc_obj = self.get_element(loc, page_action, index, time_out)
         try:
-            elm_obj.click()
+            # log.info('准备 click元素：{} ,action({})'.format(loc, page_action))
+            loc_obj.click()
         except:
-            log.exception("点击元素失败")
+            log.exception("点击元素失败,action:({}),lco:({})".format(page_action, loc))
             # 调用失败截图方法
             self.get_page_img(page_action)
             raise
 
     # 打印-调用封装的getelement-try-输入参数-expect-输入文本失败-截图-raise-else-打印
-    def input_value(self, elm, page_action, value, index=None, time_out=20):
-        elm_obj = self.get_element(elm, page_action, index, time_out)
+    def input_value(self, loc, page_action, value, index=None, time_out=20):
+        loc_obj = self.get_element(loc, page_action, index, time_out)
         try:
-            log.info('在 {} 行为，操作input元素：{}'.format(page_action, elm))
-            elm_obj.clear()
-            elm_obj.send_keys(value)
+            # log.info('input元素：{}'.format(page_action, loc))
+            loc_obj.clear()
+            loc_obj.send_keys(value)
         except:
-            log.exception('输入文本失败')
+            log.exception('输入文本失败,loc({})'.format(loc))
             self.get_page_img(page_action)
             raise
 
         else:
-            log.info('value 输入成功,value为：{}'.format(value))
+            # log.info('value 输入成功,value为：{}'.format(value))
+            pass
 
     # 打印-调用封装的getelement-try-获取文本-expect-获取文本失败-截图-raise-else-return-tetx
-    def get_text(self, elm, page_action, index=None, time_out=5):
+    def get_text(self, loc, page_action, index=None, time_out=5):
         # 获取元素对象
-        elm_obj = self.get_element(elm, page_action, index, time_out)
+        loc_obj = self.get_element(loc, page_action, index, time_out)
         try:
-            log.info('在 {} 行为，获取元素文本:{}'.format(page_action, elm))
+            # log.info('在 {} 行为，获取元素文本:{}'.format(page_action, loc))
             # 获取文本
-            text_obj = elm_obj.text
+            text_obj = loc_obj.text
         except:
-            log.exception('获取文本失败')
+            log.exception('获取文本失败, loc:({})'.format(loc))
             self.get_page_img(page_action)
             raise
         else:
-            log.info('获取文本元素成功，元素为：{}'.format(text_obj))
+            # log.info('获取文本元素成功，元素为：{}'.format(text_obj))
             return text_obj
 
     # 页面截图方法
@@ -146,5 +148,5 @@ if __name__ == '__main__':
     driver.maximize_window()
     driver.get('https://www.baidu.com/')
 
-    elm = (By.ID, 'kw')
-    new_basepage.input_value(elm, '百度输入框输入文本', '柠檬班')
+    loc = (By.ID, 'kw')
+    new_basepage.input_value(loc, '百度输入框输入文本', '柠檬班')
