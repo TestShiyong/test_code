@@ -2,7 +2,7 @@
 #:@FILE  basepage.py
 #:@EMAIL  1557225637@QQ.COM
 
-from path import error_picture_dir
+from my_py.pathFunc import error_picture_dir
 import time
 import os
 from common.log import log

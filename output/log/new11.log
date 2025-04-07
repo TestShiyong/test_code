@@ -1,0 +1,43 @@
+2023-09-01 18:48:28,955:mylog:click_element:basepage.py:82:ERROR:点击元素失败,action:(点击存储按钮),lco:(('xpath', '//button[text()="存储"]'))
+Traceback (most recent call last):
+  File "D:\Shi\all_file\CODE\common\basepage.py", line 80, in click_element
+    loc_obj.click()
+  File "C:\Users\Shi\.virtualenvs\CODE-fdndUAQ0\lib\site-packages\selenium\webdriver\remote\webelement.py", line 88, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "C:\Users\Shi\.virtualenvs\CODE-fdndUAQ0\lib\site-packages\selenium\webdriver\remote\webelement.py", line 396, in _execute
+    return self._parent.execute(command, params)
+  File "C:\Users\Shi\.virtualenvs\CODE-fdndUAQ0\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 428, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Shi\.virtualenvs\CODE-fdndUAQ0\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 243, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.ElementClickInterceptedException: Message: element click intercepted: Element <button type="disabled-quiet" class="sc-ktHwxA bwPBzM tb-btn--disabled-quiet">...</button> is not clickable at point (1294, 98). Other element would receive the click: <div class="tb-default-theme buttons___1H5xc" id="heading-buttons">...</div>
+  (Session info: chrome=104.0.5112.102)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x010D78B3+2193587]
+	Ordinal0 [0x01070681+1771137]
+	Ordinal0 [0x00F841A8+803240]
+	Ordinal0 [0x00FB8C84+1019012]
+	Ordinal0 [0x00FB6C48+1010760]
+	Ordinal0 [0x00FB493B+1001787]
+	Ordinal0 [0x00FB3699+997017]
+	Ordinal0 [0x00FA9223+954915]
+	Ordinal0 [0x00FCD7AC+1103788]
+	Ordinal0 [0x00FA8C04+953348]
+	Ordinal0 [0x00FCD9C4+1104324]
+	Ordinal0 [0x00FDDAE2+1170146]
+	Ordinal0 [0x00FCD5C6+1103302]
+	Ordinal0 [0x00FA77E0+948192]
+	Ordinal0 [0x00FA86E6+952038]
+	GetHandleVerifier [0x01380CB2+2738370]
+	GetHandleVerifier [0x013721B8+2678216]
+	GetHandleVerifier [0x011617AA+512954]
+	GetHandleVerifier [0x01160856+509030]
+	Ordinal0 [0x0107743B+1799227]
+	Ordinal0 [0x0107BB68+1817448]
+	Ordinal0 [0x0107BC55+1817685]
+	Ordinal0 [0x01085230+1856048]
+	BaseThreadInitThunk [0x76D300C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77D47B1E+286]
+	RtlGetAppContainerNamedObjectPath [0x77D47AEE+238]
+

@@ -2,7 +2,7 @@
 #:@FILE  log.py
 #:@EMAIL  1557225637@QQ.COM
 import logging
-from path import log_file_dir
+from my_py.pathFunc import log_file_dir
 
 
 class Mylog(logging.Logger):
