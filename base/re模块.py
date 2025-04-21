@@ -1,6 +1,6 @@
 import re
 
-"""
+r"""
 常用表达式
     #匹配数字：[0-9]
     #仅匹配字母：'[a-z]+
@@ -50,6 +50,15 @@ def re_findall():
     matches2=r'{\w+}'
     print(re.findall(matches2,str2)) # ['{cabernet}']
 
+def re_sub():
+    """
+   re.sub可以替换正则匹配到的数据
+    :return:
+    """
+    text = "sp_cabernet_#86010d#*2x"
+    matches3='[0-9]+'
+    print(re.search(matches3,text).group(0)) #['86010', '2']
+    print(re.sub(matches3,'1000',text)) #sp_cabernet_#1000d#*1000x
 
 
-re_findall()
+re_sub()
